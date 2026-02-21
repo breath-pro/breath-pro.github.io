@@ -438,3 +438,27 @@ body {
 .screen-item img { width: 260px !important; }
 .screens-grid { gap: 48px !important; }
 .screen-item p { color: #666 !important; }
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    /* Шапка */
+    .header { background: #000 !important; padding: 12px 16px; }
+    .logo { gap: 8px; }
+    .logo-name { font-size: 1rem; white-space: nowrap; }
+    .header .container { display: flex; justify-content: space-between; align-items: center; }
+
+    /* Скриншоты — горизонтальный скролл */
+    .screens-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        gap: 20px !important;
+        padding: 16px !important;
+        justify-content: flex-start !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .screens-grid::-webkit-scrollbar { display: none; }
+    .screen-item { flex: 0 0 auto !important; }
+    .screen-item img { width: 200px !important; }
+}
