@@ -46,30 +46,30 @@ function animateBreath() {
     }, durations[phase]);
 }
 animateBreath();
+
 // СЛАЙДЕР СКРИНШОТОВ
-(function() {
-    var current = 1; // начинаем с позиции 1 — видны краешки 0 и 4
-    var total = 6;
-    var max = total - 3;
+var sliderCurrent = 0;
+var sliderMax = 3;
 
-    function update() {
-        var grid = document.getElementById('screensGrid');
-        if (!grid) return;
-        var item = grid.querySelectorAll('.screen-item')[0];
-        var itemW = item.offsetWidth + 24;
-        grid.style.transform = 'translateX(-' + (current * itemW) + 'px)';
-        document.getElementById('prevBtn').disabled = current <= 0;
-        document.getElementById('nextBtn').disabled = current >= max;
-    }
+function slideScreens(dir) {
+    sliderCurrent += dir;
+    if (sliderCurrent < 0) sliderCurrent = 0;
+    if (sliderCurrent > sliderMax) sliderCurrent = sliderMax;
 
-    window.slideScreens = function(dir) {
-        current += dir;
-        if (current < 0) current = 0;
-        if (current > max) current = max;
-        update();
-    };
+    var grid = document.getElementById('screensGrid');
+    var items = grid.querySelectorAll('.screen-item');
+    var itemW = items[0].offsetWidth + 20;
 
-    document.addEventListener('DOMContentLoaded', function() {
-        update();
-    });
-})();
+    grid.style.transform = 'translateX(-' + (sliderCurrent * itemW) + 'px)';
+
+    document.getElementById('prevBtn').disabled = (sliderCurrent === 0);
+    document.getElementById('nextBtn').disabled = (sliderCurrent === sliderMax);
+}
+
+// Инициализация после загрузки
+window.addEventListener('load', function() {
+    var prevBtn = document.getElementById('prevBtn');
+    var nextBtn = document.getElementById('nextBtn');
+    if (prevBtn) prevBtn.disabled = true;
+    if (nextBtn) nextBtn.disabled = false;
+});
