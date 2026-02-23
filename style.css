@@ -727,3 +727,32 @@ body {
         font-size: 1rem !important;
     }
 }
+
+/* ===== СЛАЙДЕР ФИНАЛ v2 ===== */
+.screen-item {
+    width: calc((100vw - 260px) / 3.2) !important;
+}
+
+@media (max-width: 768px) {
+    .slider-arrow {
+        display: none !important;
+    }
+    .screen-item {
+        width: calc(100vw - 80px) !important;
+    }
+    .screens-viewport {
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+    }
+    .screens-viewport::-webkit-scrollbar {
+        display: none !important;
+    }
+    .screen-item {
+        scroll-snap-align: center !important;
+    }
+    .screens-grid {
+        padding: 0 20px !important;
+    }
+}
