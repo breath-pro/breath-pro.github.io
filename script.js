@@ -46,3 +46,24 @@ function animateBreath() {
     }, durations[phase]);
 }
 animateBreath();
+// СЛАЙДЕР СКРИНШОТОВ
+let currentSlide = 0;
+const totalSlides = 6;
+const visible = 3;
+const maxSlide = totalSlides - visible;
+
+function slideScreens(dir) {
+    currentSlide += dir;
+    if (currentSlide < 0) currentSlide = 0;
+    if (currentSlide > maxSlide) currentSlide = maxSlide;
+    const grid = document.getElementById('screensGrid');
+    const itemWidth = grid.querySelector('.screen-item').offsetWidth + 24;
+    grid.style.transform = 'translateX(-' + (currentSlide * itemWidth) + 'px)';
+    document.getElementById('prevBtn').disabled = currentSlide === 0;
+    document.getElementById('nextBtn').disabled = currentSlide === maxSlide;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const prevBtn = document.getElementById('prevBtn');
+    if (prevBtn) prevBtn.disabled = true;
+});
