@@ -251,31 +251,35 @@
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 14px;
+            gap: 12px;
             margin: 24px 0;
         }
         .benefit-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 14px;
-            padding: 20px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-left: 2px solid rgba(255,140,0,0.4);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 20px 20px 22px;
             transition: border-color 0.2s, transform 0.2s;
+            position: relative;
         }
         .benefit-card:hover {
-            border-color: rgba(255,140,0,0.2);
+            border-color: rgba(255,255,255,0.1);
+            border-left-color: #ff8c00;
             transform: translateY(-2px);
         }
-        .benefit-icon { font-size: 28px; margin-bottom: 10px; }
+        .benefit-icon { display: none; }
         .benefit-title {
             font-size: 15px;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+            letter-spacing: 0.1px;
         }
         .benefit-desc {
             font-size: 13px;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.5;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.6;
             margin: 0;
         }
 
